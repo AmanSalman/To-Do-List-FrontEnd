@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #2c3e50;
+  padding: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+#List {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+#List li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: color 0.3s ease;
+}
+
+#List li a:hover {
+  color: #ecf0f1;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+#form-section {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #2c3e50;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#taskForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#buttons-section {
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3498db;
+}
+
+#taskList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#taskList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #bdc3c7;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+#taskList li:hover {
+  background-color: #ecf0f1;
+}
+
+footer {
+  background-color: #2c3e50;
+  padding: 1rem 0;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+}
