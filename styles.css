@@ -1,0 +1,200 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #fce4ec;
+  color: #333;
+}
+
+header {
+  background-color: #FFB6C1;
+  padding: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #ff9da0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#List {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+#List li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ff7a85, #ff9da0);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#List li a:hover {
+  background: linear-gradient(135deg, #ff9da0, #ff7a85);
+  transform: scale(1.05);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+#form-section {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #FFB6C1;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+#taskForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #FFB6C1;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #ff9da0;
+  outline: none;
+}
+
+button {
+  background-color: #FFB6C1;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #ff9da0;
+  transform: scale(1.05);
+}
+
+#taskList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#taskList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 2px solid #FFB6C1;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#taskList li:hover {
+  background-color: #ffeff0;
+  transform: translateY(-2px);
+}
+
+#buttons-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#display-btn {
+  margin-bottom: 10px;
+}
+
+#hide-btn {
+  margin-bottom: 10px;
+}
+#clearButton, #toggleAllButton, #filterButton, #sortButton {
+  background-color: #ff9da0;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#clearButton:hover, #toggleAllButton:hover, #filterButton:hover, #sortButton:hover {
+  background-color: #ff7a85;
+  transform: scale(1.05);
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input[type="text"]#filterInput, select#sortInput {
+  padding: 8px;
+  border: 2px solid #FFB6C1;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 150px;
+}
+
+input[type="text"]#filterInput:focus, select#sortInput:focus {
+  border-color: #ff9da0;
+}
+
+footer {
+  background-color: #FFB6C1;
+  padding: 1rem 0 1rem 0;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  border-top: 3px solid #ff9da0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
