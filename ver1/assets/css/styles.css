@@ -1,23 +1,10 @@
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background-color: #fce4ec;
-  color: #333;
-  position: relative;
-  height: 100vh;
-}
+@import url('shared.css');
 
 header {
-  background-color: #FFB6C1;
+  background-color: var(--primary-color);
   padding: 1rem 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid #ff9da0;
+  border-bottom: 3px solid var(--secondary-color);
 }
 
 nav {
@@ -38,12 +25,12 @@ nav {
   font-size: 20px;
   padding: 10px 20px;
   border-radius: 15px;
-  background: linear-gradient(135deg, #ff7a85, #ff9da0);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
 #List li a:hover {
-  background: linear-gradient(135deg, #ff9da0, #ff7a85);
+  background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
   transform: scale(1.05);
 }
 
@@ -67,63 +54,22 @@ main {
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 500px;
+  width: 65%;
   text-align: center;
   position: relative;
-}
-
-h1 {
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-  color: #e78f9d;
-  text-shadow: 1px 1px 2px #fff;
-  font-weight: 400;
-  font-family: 'Dancing Script', cursive;
 }
 
 #taskForm {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #f3a1ae;
-  border-radius: 10px;
-  font-size: 16px;
-  color: #333;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus {
-  border-color: #e78f9d;
-  outline: none;
-}
-
-button {
-  background-color: #e78f9d;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  background-color: #f3a1ae;
-  transform: scale(1.05);
 }
 
 #taskList {
   list-style-type: none;
   padding: 0;
+  margin-top: 20px;
 }
 
 .task-item {
@@ -131,7 +77,7 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  border: 2px solid #FFB6C1;
+  border: 2px solid var(--primary-color);
   padding: 15px 20px;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -140,7 +86,7 @@ button:hover {
 }
 
 .task-item:hover {
-  background-color: #ffeff0;
+  background-color: var(--bg-color);
   transform: translateY(-2px);
 }
 
@@ -151,9 +97,8 @@ button:hover {
 
 .edit-icon, .delete-icon {
   cursor: pointer;
-  color: #e78f9d;
+  color: var(--button-color);
 }
-
 
 #buttons-section {
   display: flex;
@@ -162,15 +107,8 @@ button:hover {
   margin-top: 20px;
 }
 
-#display-btn {
-  margin-bottom: 10px;
-}
-
-#hide-btn {
-  margin-bottom: 10px;
-}
 #clearButton, #toggleAllButton, #filterButton, #sortButton {
-  background-color: #ff9da0;
+  background-color: var(--secondary-color);
   border: none;
   color: white;
   padding: 8px 15px;
@@ -181,7 +119,7 @@ button:hover {
 }
 
 #clearButton:hover, #toggleAllButton:hover, #filterButton:hover, #sortButton:hover {
-  background-color: #ff7a85;
+  background-color: var(--gradient-start);
   transform: scale(1.05);
 }
 
@@ -193,46 +131,12 @@ button:hover {
 
 input[type="text"]#filterInput, select#sortInput {
   padding: 8px;
-  border: 2px solid #FFB6C1;
+  border: 2px solid var(--primary-color);
   border-radius: 10px;
   font-size: 14px;
   width: 150px;
 }
 
 input[type="text"]#filterInput:focus, select#sortInput:focus {
-  border-color: #ff9da0;
-}
-
-footer {
-  background-color: #FFB6C1;
-  padding: 1rem 0 1rem 0;
-  text-align: center;
-  color: white;
-  font-size: 14px;
-  border-top: 3px solid #ff9da0;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-
-#toast {
-  position: fixed;
-  top: 5%;
-  left: 80%;
-  transform: translateX(-50%);
-  background-color: rgba(255, 182, 193, 0.9);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1.2em;
-  display: none;
-  z-index: 1000;
-  transition: opacity 0.5s ease;
+  border-color: var(--secondary-color);
 }

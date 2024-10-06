@@ -1,0 +1,79 @@
+:root {
+  --primary-color: #FFB6C1;
+  --secondary-color: #ff9da0;
+  --bg-color: #fce4ec;
+  --text-color: #333;
+  --input-border-color: #f3a1ae;
+  --button-hover-color: #f3a1ae;
+  --button-color: #e78f9d;
+  --gradient-start: #ff7a85;
+  --gradient-end: #ff9da0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  height: 100vh;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: var(--button-color);
+  text-shadow: 1px 1px 2px #fff;
+  font-weight: 400;
+  font-family: 'Dancing Script', cursive;
+}
+
+input[type="email"], input[type="password"], input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid var(--input-border-color);
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus {
+  border-color: var(--button-color);
+  outline: none;
+}
+
+button {
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+  transform: scale(1.05);
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--button-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
