@@ -1,5 +1,11 @@
 @import url('shared.css');
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #login-form {
   background-color: #fff;
   padding: 40px;

@@ -1,3 +1,4 @@
+import { hideLoader, showLoader } from "./Loader.js";
 const token = localStorage.getItem('token');
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -7,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   fetchTasks();
 });
+
 
 async function fetchTasks() {
   const Tasks = []
@@ -89,66 +91,75 @@ document.addEventListener('click', function(event) {
 });
 
 
-function renderTasks(){
+async function renderTasks() {
   const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   const taskList = document.getElementById('taskList');
   taskList.style.display = 'block';
   taskList.innerHTML = '';
+  showLoader();
+  try {
+    for (let index = 0; index < tasks.length; index++) {
+      const task = tasks[index];
+      const { data } = await axios.get(`https://to-do-list-backend-rd9g.onrender.com/tasks/${task}`, {
+        headers: { Authorization: `${token}` },
+      });
 
-  tasks.map(async (task, index) => {
-    const { data } = await axios.get(`https://to-do-list-backend-rd9g.onrender.com/tasks/${task}`, { headers: { Authorization: `${token}` } });
-    
-    const divItem = document.createElement('div');
-    divItem.className = 'task-item';
+      const divItem = document.createElement('div');
+      divItem.className = 'task-item';
 
-    const checkBox = document.createElement('input');
-    checkBox.type = 'checkbox';
-    checkBox.checked = data.task.status === 'Completed';
-    checkBox.addEventListener('change', () => handleTaskCompletion(data.task._id, checkBox.checked));
+      const checkBox = document.createElement('input');
+      checkBox.type = 'checkbox';
+      checkBox.checked = data.task.status === 'Completed';
+      checkBox.addEventListener('change', () => handleTaskCompletion(data.task._id, checkBox.checked));
 
-    const listItem = document.createElement('li');
-    listItem.textContent = `Task: ${data.task.task}`;
-    
-    const dueDateItem = document.createElement('p');
-    const dueDate = new Date(data.task.dueDate).toLocaleDateString();
-    dueDateItem.textContent = `Due: ${dueDate}`;
+      const listItem = document.createElement('li');
+      listItem.textContent = `Task: ${data.task.task}`;
 
-    const statusItem = document.createElement('p');
-    statusItem.textContent = `${data.task.status}`;
+      const dueDateItem = document.createElement('p');
+      const dueDate = new Date(data.task.dueDate).toLocaleDateString();
+      dueDateItem.textContent = `Due: ${dueDate}`;
 
-    if(data.task.status == 'Pending'){
-      statusItem.style.color ='orange';
-      const taskDueDate = new Date(data.task.dueDate); // Convert dueDate to a Date object
+      const statusItem = document.createElement('p');
+      statusItem.textContent = `${data.task.status}`;
 
-      if (taskDueDate < Date.now()) { // Compare dates
-        statusItem.textContent += ' - Task overdue'; // Append 'Task overdue' to the status
-        statusItem.style.color = 'red'; // Change text color to red for overdue tasks
+      if (data.task.status === 'Pending') {
+        statusItem.style.color = 'orange';
+        const taskDueDate = new Date(data.task.dueDate);
+
+        if (taskDueDate < Date.now()) {
+          statusItem.textContent += ' - Task overdue';
+          statusItem.style.color = 'red';
+        }
+      } else if (data.task.status === 'Done') {
+        listItem.style.textDecoration = 'line-through';
+        statusItem.style.color = 'green';
       }
-    } else if(data.task.status == 'Done'){
-      listItem.style.textDecoration ='line-through';
-      statusItem.style.color ='green';
+
+      const iconsDiv = document.createElement('div');
+      iconsDiv.className = 'iconsDiv';
+
+      const editIcon = document.createElement('i');
+      editIcon.className = 'fas fa-pen edit-icon';
+      editIcon.setAttribute('taskid', index);
+
+      const deleteIcon = document.createElement('i');
+      deleteIcon.className = 'fas fa-times delete-icon';
+      deleteIcon.setAttribute('taskid', index);
+
+      iconsDiv.appendChild(editIcon);
+      iconsDiv.appendChild(deleteIcon);
+
+      divItem.appendChild(checkBox);
+      divItem.appendChild(listItem);
+      divItem.appendChild(dueDateItem);
+      divItem.appendChild(statusItem);
+      divItem.appendChild(iconsDiv);
+
+      taskList.appendChild(divItem);
     }
-
-    const iconsDiv = document.createElement('div');
-    iconsDiv.className = 'iconsDiv';
-
-    const editIcon = document.createElement('i');
-    editIcon.className = 'fas fa-pen edit-icon';
-    editIcon.setAttribute('taskid', index);
-
-    const deleteIcon = document.createElement('i');
-    deleteIcon.className = 'fas fa-times delete-icon';
-    deleteIcon.setAttribute('taskid', index);
-
-    iconsDiv.appendChild(editIcon);
-    iconsDiv.appendChild(deleteIcon);
-
-    divItem.appendChild(checkBox);
-    divItem.appendChild(listItem);
-    divItem.appendChild(dueDateItem);
-    divItem.appendChild(statusItem);
-    divItem.appendChild(iconsDiv);
-
-    taskList.appendChild(divItem);
-  });
+  } catch (error) {
+    console.error('Error fetching tasks:', error);
+  } finally {
+    hideLoader();
+  }
 }
