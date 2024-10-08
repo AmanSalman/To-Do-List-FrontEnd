@@ -116,49 +116,13 @@ main {
   margin-top: 20px;
 }
 
-#clearButton,
-#toggleAllButton,
-#filterButton,
-#sortButton {
-  background-color: var(--secondary-color);
-  border: none;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-#clearButton:hover,
-#toggleAllButton:hover,
-#filterButton:hover,
-#sortButton:hover {
-  background-color: var(--gradient-start);
-  transform: scale(1.05);
-}
-
 .input-group {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
 }
 
-input[type="text"]#filterInput,
-select#sortInput {
-  padding: 8px;
-  border: 2px solid var(--primary-color);
-  border-radius: 10px;
-  font-size: 14px;
-  width: 150px;
-}
-
-input[type="text"]#filterInput:focus,
-select#sortInput:focus {
-  border-color: var(--secondary-color);
-}
-
-.loader-container {
+/* .loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,7 +135,6 @@ select#sortInput:focus {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* Loader animation */
 .loader {
   border: 8px solid #cc9595;
   border-top: 8px solid rgba(0, 0, 0, 0.06);
@@ -181,7 +144,6 @@ select#sortInput:focus {
   animation: spin 1s linear infinite;
 }
 
-/* Keyframes for spinning animation */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -189,4 +151,18 @@ select#sortInput:focus {
   100% {
     transform: rotate(360deg);
   }
+} */
+
+
+#statusFilter{
+  border-radius: 15px;
+  padding: 10px;
+  background-color: var(--button-color);
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+
+#statusFilter:focus {
+  outline: none;
 }
