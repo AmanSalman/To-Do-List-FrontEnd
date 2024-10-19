@@ -166,3 +166,26 @@ main {
 #statusFilter:focus {
   outline: none;
 }
+
+#errorMessage {
+  color: red;
+  margin-bottom: 15px;
+}
+
+.pagination-button {
+  margin: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: var(--bg-color);
+  border: 1px solid #ccc;
+  color: var(--button-color);
+}
+
+.active-page {
+  background-color: var(--button-color)!important;
+  color: white;
+}
+
+.pagination-button:hover{
+  background-color:var(--bg-color);
+}

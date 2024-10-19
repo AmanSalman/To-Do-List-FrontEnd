@@ -16,20 +16,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <!-- <div class="loader-container" style="display: none;" id="loader-container">
-    <div id="loader" class="loader" ></div>
-  </div> -->
-    <!-- <header>
-    <nav id="nav">
-      <ul id="List">
-        <li><a href="#">My Tasks</a></li>
-        <li><a href="#">Streaks</a></li>
-        <li><a href="#">Goals</a></li>
-      </ul>
-    </nav>
-  </header> -->
-
-    <!-- <div id="toast"></div> -->
     <main>
       <section id="form-section">
         <div class="title">
@@ -41,31 +27,29 @@
           />
         </div>
         <form id="taskForm">
-          <input type="text" id="taskInput" placeholder="Add a new task..." />
+          <input type="text" id="taskInput" placeholder="Add a new task..." required />
+          <input type="date" id="date" name="date" required />
           <button type="submit">Add</button>
         </form>
+        <p class="error" id="errorMessage"></p>
         <button id="display-btn">
           <span>Show All</span>
         </button>
         <button id="hide-btn">
           <span>Hide</span>
         </button>
-        <label for="statusFilter"></label>
+        <label for="statusFilter">Filter tasks:</label>
         <select id="statusFilter">
           <option value="all">All</option>
           <option value="pending">Pending</option>
           <option value="done">Done</option>
         </select>
+
         <ul id="taskList"></ul>
+        <div id="pagination-controls" class="pagination"></div>
       </section>
     </main>
 
-    <!-- <footer>
-    <p>&copy; 2024 Aman Salman </p>
-  </footer> -->
-
-    <!-- <script src="./assets/js/script.js"></script> -->
-    <!-- <script type="module" src="./assets/js/Loader.js"></script> -->
     <script src="./assets/js/ApiVer.js"></script>
   </body>
 </html>
